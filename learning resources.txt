@@ -37,3 +37,17 @@ Request -> Controller -> ControllerExceptionHandler Class -> Build Error Respons
 	Error
 		String errorCode;
 		String errorDescription;
+
+
+
+
+Topics
+Add Logger
+Add Logging Levels
+Add Validations to API Request
+Test Class Using MockMvc
+Controller Advice and Exception Handler
+Generic Response Class for error and response
+Use SpringBoot AutoWired Feature ( It will break the test cases)
+Remove Direct Class Implementation and implement Interface for services
+Rename the classes and set suffix like DTO, DOC
