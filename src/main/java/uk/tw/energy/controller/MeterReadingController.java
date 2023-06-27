@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import uk.tw.energy.domain.ElectricityReading;
 import uk.tw.energy.domain.MeterReadings;
+import uk.tw.energy.dto.GenericResponseDTO;
 import uk.tw.energy.service.MeterReadingService;
 
 import javax.validation.Valid;
@@ -53,11 +54,11 @@ public class MeterReadingController {
     }
 
     @GetMapping("/read/{smartMeterId}")
-    public ResponseEntity readReadings(@PathVariable String smartMeterId) {
+    public ResponseEntity<GenericResponseDTO<List<ElectricityReading>>> readReadings(@PathVariable String smartMeterId) {
         logger.info("readReadings Controller Started smartMeterId:{}", smartMeterId);
         Optional<List<ElectricityReading>> readings = meterReadingService.getReadings(smartMeterId);
         return readings.isPresent()
-                ? ResponseEntity.ok(readings.get())
+                ? ResponseEntity.ok(new GenericResponseDTO<>(readings.get()))
                 : ResponseEntity.notFound().build();
     }
 }

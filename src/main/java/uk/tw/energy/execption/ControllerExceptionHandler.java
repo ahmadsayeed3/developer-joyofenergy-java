@@ -17,7 +17,7 @@ public class ControllerExceptionHandler {
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity<GenericResponseDTO> handleMethodArgumentNotValidException(MethodArgumentNotValidException exception){
         List<ErrorDTO> errors = new ArrayList<>();
-        GenericResponseDTO genericResponseDTO = new GenericResponseDTO();
+        GenericResponseDTO genericResponseDTO = new GenericResponseDTO(null);
         genericResponseDTO.setErrorDTOList(errors);
         genericResponseDTO.setError(true);
         exception.getBindingResult().getAllErrors().forEach(objectError -> {
