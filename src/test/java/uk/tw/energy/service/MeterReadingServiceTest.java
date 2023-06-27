@@ -2,6 +2,7 @@ package uk.tw.energy.service;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import uk.tw.energy.service.impl.MeterReadingServiceImpl;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -15,7 +16,7 @@ public class MeterReadingServiceTest {
 
     @BeforeEach
     public void setUp() {
-        meterReadingService = new MeterReadingService(new HashMap<>());
+        meterReadingService = new MeterReadingServiceImpl(new HashMap<>());
     }
 
     @Test

@@ -8,6 +8,8 @@ import uk.tw.energy.domain.PricePlan;
 import uk.tw.energy.service.AccountService;
 import uk.tw.energy.service.MeterReadingService;
 import uk.tw.energy.service.PricePlanService;
+import uk.tw.energy.service.impl.AccountServiceImpl;
+import uk.tw.energy.service.impl.MeterReadingServiceImpl;
 
 import java.math.BigDecimal;
 import java.time.Instant;
@@ -32,7 +34,7 @@ public class PricePlanComparatorControllerTest {
 
     @BeforeEach
     public void setUp() {
-        meterReadingService = new MeterReadingService(new HashMap<>());
+        meterReadingService = new MeterReadingServiceImpl(new HashMap<>());
         PricePlan pricePlan1 = new PricePlan(PRICE_PLAN_1_ID, null, BigDecimal.TEN, null);
         PricePlan pricePlan2 = new PricePlan(PRICE_PLAN_2_ID, null, BigDecimal.ONE, null);
         PricePlan pricePlan3 = new PricePlan(PRICE_PLAN_3_ID, null, BigDecimal.valueOf(2), null);
@@ -42,7 +44,7 @@ public class PricePlanComparatorControllerTest {
 
         Map<String, String> meterToTariffs = new HashMap<>();
         meterToTariffs.put(SMART_METER_ID, PRICE_PLAN_1_ID);
-        accountService = new AccountService(meterToTariffs);
+        accountService = new AccountServiceImpl(meterToTariffs);
 
         controller = new PricePlanComparatorController(tariffService, accountService);
     }
