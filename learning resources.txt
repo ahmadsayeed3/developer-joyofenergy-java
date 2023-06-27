@@ -1,0 +1,39 @@
+https://sumitvairagar.hashnode.dev/my-interview-experience-thoughtworks-remote
+
+https://leetcode.com/discuss/interview-question/system-design/1049541/Looking-for-guidance-to-prepare-for-Thoughtworks-oops-concepts-modelling-and-design-round/858621
+
+https://howtodoinjava.com/spring-boot2/testing/rest-controller-unit-test-example/
+
+https://stackoverflow.com/questions/49956208/spring-controller-testing-with-mockmvc-post-method
+
+
+https://github.com/techops-recsys-lateral-hiring/developer-joyofenergy-java
+
+
+Changelog:
+
+JavaVersion.VERSION_17 -> JavaVersion.VERSION_11
+
+No logs in controlller class. would help to know whether the API call is reaching to controller. When we deploy the application on cloud there are 
+multiple layer involves.
+
+We are storing dateTime in timestamp and returning in human readable format. is this expected?
+
+In /readings/store: If passed empty/Null it only gives 500 Internal Server Error but no error message. Consumer should know what's the reason 
+of fail so the API should retun BadInPut error message and code.
+
+We have added Springboot dependency but not using much why?
+
+Move Logics to the service layer so that it can be tested using Junit, Mockito, would may require less api functional testing
+
+
+Request -> Controller -> ControllerExceptionHandler Class -> Build Error Response -> Return Response
+
+ Build Error Response
+	ResponseGeneric
+		boolean isError;
+		List<Error> errors
+
+	Error
+		String errorCode;
+		String errorDescription;
